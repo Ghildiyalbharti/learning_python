@@ -1,0 +1,47 @@
+# how many times a word appear
+'''
+para = input("enter any para you want")
+word = input("enter word you want to select")
+count = 0
+
+#error :: because here it is considering whole para as a single word , so count will not be incremented
+
+for i in para:
+    if word in para:
+        count = +1
+        continue
+    else:
+        print("word is not found")
+print("occurrence : ", count)
+'''
+
+
+'''
+#solution: we have to split
+w = para.split() #by default-space
+for i in w:
+    if i.lower()==word.lower():
+        count+= 1
+
+print("occurrnces: ",count)
+'''
+para = input("enter any para you want")
+
+count = 0
+#one level up:: asking user again and again for input the word to be searched
+times=5 #5 times user can search
+
+para_split = para.split()
+
+for i in range(times):
+    search = input("enter word you want to search")
+    for j in para_split:
+        if j.lower()== search.lower():
+            count+=1
+    print(f"word: {search} occurrences: {count}.")
+    count=0  "Reassign count to 0 so that the previous value of count will not get added to the new searched word."
+
+
+
+
+
