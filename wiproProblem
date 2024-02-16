@@ -1,0 +1,31 @@
+'''
+display words that are repeated more than or equal to N times in the text
+'''
+str1='cat batman latt matter cat cat latt latt'
+N=2
+count=0
+
+i=0
+
+words=str1.split()
+print(words)
+
+#creating  empty dictionary {word:count}
+dict_count={}
+
+for word in words:
+    #if key exists then increment the count
+    if word in dict_count:
+        dict_count[word]+=1
+    else:
+        dict_count[word]=1
+
+word_list=[]
+for key in dict_count:
+    if dict_count[key]>N:
+        word_list.append(key)
+print(word_list)
+
+
+
+
