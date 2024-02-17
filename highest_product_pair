@@ -1,0 +1,16 @@
+arr = list(map(int,input("Enter array: ").split(',')))
+print(type(arr))
+b=[]
+max_product=0
+
+
+for i in range(len(arr)):
+    for j in range(len(arr)):
+        if i!=j:
+            current_product=arr[i]*arr[j]
+
+            b.append(current_product)
+            if current_product>max_product:
+                max_product=current_product
+                max_pair=(arr[i],arr[j])
+print(max_pair)
