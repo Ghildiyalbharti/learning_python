@@ -1,0 +1,51 @@
+'''
+an e-commerce site has a series of advertisements to display.
+links to the ads are stores in a data structure and
+ they are displayed or not is based on the value at bit position in a number.
+the sequence of ads being displayed at this time can be represented as binary vlaue.where 1 means the ad is displayed and 0 means the ad is not diplayed.the ads should rotate.
+so,when the  next page loads,ads that are displayed now are hidden and vice versa
+
+input:50
+output:13
+
+explaination : 50 in binary 110010
+negation of 110010 is 001101 =13
+'''
+
+def changeads(num):
+    b_num=bin(num) #0b1100....
+    #slicing as we dont want 0b
+    b_num=b_num[2:]
+
+    #negation: replacing 1 by 0 and vice-versa
+
+    b_num_neg='' #empty string
+
+    for i in range(len(b_num)):
+        if b_num[i]=='1': #as strings are immutable .. so create an empty string
+            b_num_neg=b_num_neg+'0'
+        else:
+            b_num_neg = b_num_neg+ '1'
+
+    print(b_num_neg)
+    #binary to decimal
+    output=binTODec(b_num_neg)
+
+    return output
+
+
+
+#function for binary to decimal
+def binTODec(n):
+    sum=0
+    for i in range(len(n)):
+        sum+=int(n[i])*(2**(len(n)-(i+1)))
+    return sum
+
+
+#driver
+
+if __name__=='__main__':
+
+    num=int(input("enter number"))
+    print(changeads(num))
